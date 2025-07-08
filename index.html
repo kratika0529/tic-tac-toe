@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>✨Tic Tac Toe✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Raleway:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: linear-gradient(to right, #ffd6ec, #ffe6f0);
+      font-family: 'Raleway', sans-serif;
+    }
+
+    h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 3rem;
+      text-align: center;
+      color: #ff69b4;
+      margin-top: 1rem;
+      animation: popIn 1.5s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .wrapper {
+      position: absolute;
+      top: 58%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 60vmin;
+      height: 60vmin;
+      gap: 2vmin;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .button-option {
+      width: 18vmin;
+      height: 18vmin;
+      border-radius: 15px;
+      border: none;
+      background: white;
+      font-size: 4rem;
+      color: #ff69b4;
+      box-shadow: 0 0 10px #ffb6c1;
+      transition: transform 0.2s ease;
+    }
+
+    .button-option:hover {
+      transform: scale(1.1);
+      background: #ffe4ec;
+    }
+
+    #restart {
+      display: block;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      color: white;
+      background: #ff69b4;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    #restart:hover {
+      background: #ff1493;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(255, 182, 193, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+      animation: fadeIn 1s ease;
+    }
+
+    .popup.hide {
+      display: none;
+    }
+
+    #message {
+      font-family: 'Caveat', cursive;
+      font-size: 3rem;
+      color: #d63384;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    #new-game {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #ff69b4;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    #new-game:hover {
+      background: #ff1493;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Game Title -->
+  <h1>✨Tic Tac Toe✨</h1>
+
+  <!-- Game Grid -->
+  <div class="wrapper">
+    <div class="container">
+      <button class="button-option"></button>
+      <button class="button-option"></button>
+      <button class="button-option"></button>
+      <button class="button-option"></button>
+      <button class="button-option"></button>
+      <button class="button-option"></button>
+      <button class="button-option"></button>
+      <button class="button-option"></button>
+      <button class="button-option"></button>
+    </div>
+    <button id="restart">Restart</button>
+  </div>
+
+  <!-- Popup for result -->
+  <div class="popup hide">
+    <p id="message">Winner</p>
+    <button id="new-game">New Game</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
